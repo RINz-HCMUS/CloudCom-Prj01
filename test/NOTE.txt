@@ -1,0 +1,8 @@
+Dependancies:
+    Python:
+        Flask
+        Pyodbc
+    Mssql:
+        open port 1433
+        have sa account
+        REMEMBER to set password in app.py
