@@ -1,18 +1,22 @@
 from flask import Flask, request, jsonify, redirect
 from flask_cors import CORS
+import os
 import pymysql
 
 app = Flask(__name__)
 CORS(app)  # Bật CORS để cho phép frontend S3 gọi API
 
+# Load data từ file .env lưu trên EC2
+load_dotenv("/home/ubuntu/.env") 
+
 # Cấu hình đường dẫn S3
-S3_BUCKET_URL = ""
+S3_BUCKET_URL = os.getenv("S3_BUCKET_URL")
 
 # Cấu hình kết nối MySQL trên AWS RDS
-DB_HOST = ""
-DB_USERNAME = ""
-DB_PASSWORD = ""
-DB_DATABASE = ""
+DB_HOST = os.getenv("DB_HOST")
+DB_USERNAME = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASS")
+DB_DATABASE = os.getenv("DB_NAME")
 
 # Hàm kết nối MySQL
 def get_db_connection():
