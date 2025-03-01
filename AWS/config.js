@@ -1,1 +1,1 @@
-const API_BASE_URL = "http://13.250.12.209:5000";
+const API_BASE_URL = "LoadBalancerURL"; // or EC2 url
